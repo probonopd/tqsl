@@ -39,12 +39,12 @@ jobs:
       working-directory: ${{github.workspace}}
       run: ./appimage.sh
       
-    - name: Upload AppImage to release
+    - name: Upload AppImage to GitHub Releases
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file_glob: true
         file: ${{github.workspace}}/TQSL*AppImage
-        tag: ${{github.ref}}
+        tag: continuous
         overwrite: true
         body: "This is my release text"
